@@ -1,5 +1,6 @@
 # VulnerLab2
 
-$ npm install
-$ node server.js
-``
+  ```
+ $ npm install
+ $ node app.js
+  ``
