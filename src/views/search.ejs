@@ -11,10 +11,33 @@
         <h1>Search</h1>
         <form id="searchForm" action="/api/mongo/search" method="post" class="container">
             <input type="text" name="searchQuery" placeholder="Enter search term" required>
-            <button type="submit">Search</button>
+            <button type="button" onclick="search()">Search</button>
         </form>
         <!-- You can include a section here to display search results -->
     </div>
     <script src="/js/search.js"></script>
 </body>
+
+<script>
+    async function search() {
+      const searchInput = document.getElementById('searchInput').value;
+
+      const data = { name: searchInput };
+
+      try {
+        const response = await fetch('/api/mongo/search"', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+
+        const result = await response.json();
+        displayResults(result);
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    }
+    </script>
 </html>

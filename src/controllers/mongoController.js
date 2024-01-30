@@ -148,6 +148,7 @@ exports.track = async(req,res) =>{
     );
     
     const existDocument = await users.findOne(myobj);
+    let result = await users.findOneAndUpdate(filter,operation);
 
     if (existDocument){
       const result = await users.findOneAndUpdate(filter,operation);

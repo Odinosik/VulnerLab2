@@ -19,8 +19,15 @@ router.get('/note', (req, res) => {
 
 
 router.post('/add', noteController.addNote);
-router.post('/readFile', noteController.readFile);
-router.post('/deleteFile', noteController.deleteFile);
+router.get('/readFile:query', noteController.readFile);
 
+router.get('/readFile', (req, res) => {
+    res.render('readfile'); 
+});
+
+router.get('/deleteFile', noteController.deleteFile);
+router.get('/deleteFile', (req, res) => {
+    res.render('delete'); 
+});
 
 module.exports = router;

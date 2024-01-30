@@ -51,29 +51,7 @@ if (cachedContent){
     if (!cookie) {
         return res.status(401).send("Unauthorize");
     }
-    return res.status(200).send(`<header>
-        <h1>Moje Konto</h1>
-    </header>
-
-    <section>
-        <div>
-        Profile id: 123123
-            <h2>Imię i Nazwisko</h2>
-            <p>Twój opis lub krótka informacja o tobie.</p>
-
-            <h2>Kontakt</h2>
-            <p>Email: example@example.com</p>
-            <p>Telefon: (123) 123123</p>
-
-            <h2>Umiejętności</h2>
-            <ul>
-                <li>Umiejętność 1</li>
-                <li>Umiejętność 2</li>
-                <!-- Dodaj więcej umiejętności, jeśli to konieczne -->
-            </ul>
-        </div>
-    </section>');
-  `)
+    return res.status(200).render('profile',{name:"adam",surname:"mada", email:"adam@ad.com"})
 };
 
 const getFile = async (req, res) => {
